@@ -1,0 +1,34 @@
+/*
+Theme Name: AM Souviner Shop
+Theme URI: https://example.com
+Author: Manuel Brillantes II
+Author URI: https://brillantesmanuel.website
+Description: Custom WooCommerce-ready WordPress Theme
+Version: 1.0
+Text Domain: ams_souviner
+*/
+
+.hero-slider .carousel-item img {
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.categories .col-6 img {
+    border-radius: 8px;
+}
+
+.featured-products .card,
+.deals .card {
+    transition: transform 0.2s;
+}
+.featured-products .card:hover,
+.deals .card:hover {
+    transform: translateY(-5px);
+}
+
+.featured-products .card {
+    transition: transform 0.2s;
+}
+.featured-products .card:hover {
+    transform: translateY(-5px);
+}

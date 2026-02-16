@@ -1,0 +1,17 @@
+{
+  "name": "owel/ams-theme",
+  "description": "Custom WordPress theme with Composer dependencies",
+  "type": "wordpress-theme",
+  "require": {
+    "php": ">=8.0",
+    "twbs/bootstrap": "^5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "MyTheme\\": "src/"
+    }
+  },
+  "config": {
+    "vendor-dir": "vendor"
+  }
+}
