@@ -119,7 +119,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			}
 			$indent = ( $depth ) ? str_repeat( $t, $depth ) : '';
 
-			if ( isset($args->items_wrap) && is_string($args->items_wrap) && strpos( $args->items_wrap, 'something' ) !== false ) {
+			if ( isset( $args->items_wrap ) && is_string( $args->items_wrap ) && strpos( $args->items_wrap, 'something' ) !== false ) {
 				$this->has_schema  = true;
 				$args->link_before = '<span itemprop="name">' . $args->link_before;
 				$args->link_after .= '</span>';
@@ -602,7 +602,6 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			}
 			return $result;
 		}
-
 	}
 
 endif;

@@ -9,26 +9,26 @@ Text Domain: ams_souviner
 */
 
 .hero-slider .carousel-item img {
-    max-height: 500px;
-    object-fit: cover;
+	max-height: 500px;
+	object-fit: cover;
 }
 
 .categories .col-6 img {
-    border-radius: 8px;
+	border-radius: 8px;
 }
 
 .featured-products .card,
 .deals .card {
-    transition: transform 0.2s;
+	transition: transform 0.2s;
 }
 .featured-products .card:hover,
 .deals .card:hover {
-    transform: translateY(-5px);
+	transform: translateY(-5px);
 }
 
 .featured-products .card {
-    transition: transform 0.2s;
+	transition: transform 0.2s;
 }
 .featured-products .card:hover {
-    transform: translateY(-5px);
+	transform: translateY(-5px);
 }
