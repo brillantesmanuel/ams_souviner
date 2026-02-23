@@ -20,7 +20,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 	<?php
 	/**
 	 * Filter the message shown after a checkout is complete.
@@ -39,4 +39,5 @@ defined( 'ABSPATH' ) || exit;
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $message;
 	?>
-</p>
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

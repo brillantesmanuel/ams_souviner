@@ -18,16 +18,15 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="woocommerce-shipping-fields">
+<div class="woocommerce-shipping-fields mb-4">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
-		<h3 id="ship-to-different-address">
-			<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-				<input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" /> <span><?php esc_html_e( 'Ship to a different address?', 'woocommerce' ); ?></span>
-			</label>
-		</h3>
+		<div class="form-check mb-3">
+			<input id="ship-to-different-address-checkbox" class="form-check-input" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+			<label class="form-check-label" for="ship-to-different-address-checkbox" id="ship-to-different-address"><?php esc_html_e( 'Ship to a different address?', 'woocommerce' ); ?></label>
+		</div>
 
-		<div class="shipping_address">
+		<div class="shipping_address" id="shipping-address-fields">
 
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
@@ -47,14 +46,14 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php endif; ?>
 </div>
-<div class="woocommerce-additional-fields">
+<div class="woocommerce-additional-fields mb-4">
 	<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
 	<?php if ( apply_filters( 'woocommerce_enable_order_notes_field', 'yes' === get_option( 'woocommerce_enable_order_comments', 'yes' ) ) ) : ?>
 
 		<?php if ( ! WC()->cart->needs_shipping() || wc_ship_to_billing_address_only() ) : ?>
 
-			<h3><?php esc_html_e( 'Additional information', 'woocommerce' ); ?></h3>
+			<h4 class="mb-3"><?php esc_html_e( 'Additional information', 'woocommerce' ); ?></h4>
 
 		<?php endif; ?>
 
