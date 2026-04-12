@@ -31,6 +31,11 @@ add_action(
 // Display WooCommerce Featured Products
 function amstheme_featured_products( $number = 4 ) {
 
+	if ( ! function_exists( 'amstheme_is_woocommerce_active' ) || ! amstheme_is_woocommerce_active() ) {
+		echo '<div class="alert alert-info">' . esc_html__( 'WooCommerce is not active. Activate WooCommerce to display featured products.', 'amstheme' ) . '</div>';
+		return;
+	}
+
 	$args = array(
 		'post_type'      => 'product',
 		'posts_per_page' => $number,

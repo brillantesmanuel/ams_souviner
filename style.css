@@ -8,6 +8,13 @@ Version: 1.0
 Text Domain: ams_souviner
 */
 
+.bg-primary {
+	background: #f53d2d !important;
+}
+
+.woocommerce-MyAccount-navigation-link.is-active {
+	color: #f53d2d !important;
+}
 /* ============================================================================
    HEADER & NAVIGATION STYLES
    ============================================================================ */
@@ -697,3 +704,153 @@ select.is-invalid:focus {
 .woocommerce-checkout-review-order table .cart-discount td,
 .woocommerce-checkout-review-order table .cart-subtotal td {
 	text-align: right;
+}
+
+/* Login / Register styles */
+.ams-auth-card {
+	background: #fff;
+	border: 1px solid #e9ecef;
+	border-radius: 1rem;
+	padding: 2rem;
+	box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.ams-auth-title {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	color: #0d6efd;
+}
+
+.ams-login-register {
+	border: 1px solid #e9ecef;
+	border-radius: 1rem;
+	overflow: hidden;
+}
+
+.ams-login-register-tabs {
+	display: flex;
+	background: #f8f9fa;
+}
+
+.ams-tab-button {
+	flex: 1;
+	border: none;
+	background: transparent;
+	padding: 1rem 1.25rem;
+	font-weight: 600;
+	color: #495057;
+	cursor: pointer;
+	transition: background 0.25s ease, color 0.25s ease;
+}
+
+.ams-tab-button.active,
+.ams-tab-button:hover {
+	background: #fff;
+	color: #0d6efd;
+}
+
+.ams-auth-panel {
+	display: none;
+	padding: 2rem;
+}
+
+.ams-auth-panel.active {
+	display: block;
+}
+
+.ams-register-form label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+.ams-register-form input.form-control {
+	margin-bottom: 1rem;
+}
+
+.ams-register-submit,
+.ams-alert {
+	width: 100%;
+}
+
+.ams-register-submit {
+	background: #0d6efd;
+	border: none;
+	color: #fff;
+	padding: 0.85rem 1.25rem;
+	font-weight: 600;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.ams-alert {
+	padding: 1rem 1.25rem;
+	border-radius: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.ams-alert-success {
+	background: #e9f7ef;
+	color: #0f5132;
+	border: 1px solid #d1e7dd;
+}
+
+.ams-alert-error {
+	background: #f8d7da;
+	color: #842029;
+	border: 1px solid #f5c2c7;
+}
+
+.ams-alert-warning {
+	background: #fff3cd;
+	color: #664d03;
+	border: 1px solid #ffecb5;
+}
+
+/* My Account Profile Styles */
+.ams-auth-card h5 {
+	font-weight: 600;
+	color: #0d6efd;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-size: 0.95rem;
+}
+
+.ams-auth-card p {
+	font-size: 0.95rem;
+	color: #555;
+	line-height: 1.6;
+}
+
+.ams-auth-card .form-control:disabled,
+.ams-auth-card .form-control[readonly] {
+	background-color: #f8f9fa;
+	color: #555;
+	border-color: #dee2e6;
+	cursor: not-allowed;
+}
+
+.ams-auth-card .form-label {
+	font-weight: 500;
+	color: #333;
+	margin-bottom: 0.5rem;
+	font-size: 0.95rem;
+}
+
+.ams-auth-card .btn {
+	padding: 0.75rem 1.5rem;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.ams-auth-card .btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+	.ams-auth-card {
+		margin-bottom: 1.5rem;
+	}
+}

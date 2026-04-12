@@ -20,7 +20,7 @@ get_header(); ?>
 			<div class="col-lg-6">
 				<h1 class="display-4 fw-bold mb-3">Welcome to AM Souviner Shop</h1>
 				<p class="lead mb-4">Discover our amazing collection of unique and memorable souvenirs. Find the perfect gift for yourself or your loved ones.</p>
-				<a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="btn btn-light btn-lg">Shop Now</a>
+				<a href="<?php echo esc_url( amstheme_get_woocommerce_url( 'shop', home_url( '/' ) ) ); ?>" class="btn btn-light btn-lg">Shop Now</a>
 			</div>
 			<div class="col-lg-6">
 				<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-placeholder.jpg'); ?>" alt="Hero" class="img-fluid rounded" loading="lazy">
@@ -62,7 +62,7 @@ get_header(); ?>
 											array( 'class' => 'img-fluid w-100' )
 										);
 									} else {
-										echo '<img src="' . esc_url( wc_placeholder_img_src() ) . '" alt="' . esc_attr( $cate->name ) . '" class="img-fluid w-100">';
+										echo '<img src="' . esc_url( amstheme_placeholder_img_src() ) . '" alt="' . esc_attr( $cate->name ) . '" class="img-fluid w-100">';
 									}
 									?>
 								</div>
@@ -89,7 +89,7 @@ get_header(); ?>
 		</div>
 		<?php amstheme_featured_products( 8 ); ?>
 		<div class="text-center mt-5">
-			<a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="btn btn-outline-primary btn-lg">View All Products</a>
+			<a href="<?php echo esc_url( amstheme_get_woocommerce_url( 'shop', home_url( '/' ) ) ); ?>" class="btn btn-outline-primary btn-lg">View All Products</a>
 		</div>
 	</div>
 </section>
@@ -135,11 +135,11 @@ get_header(); ?>
 									);
 									echo '</a>';
 								} else {
-									echo '<a href="' . esc_url( get_permalink() ) . '"><img class="card-img-top product-img img-fluid" src="' . esc_url( wc_placeholder_img_src() ) . '" alt="' . esc_attr( get_the_title() ) . '"></a>';
+									echo '<a href="' . esc_url( get_permalink() ) . '"><img class="card-img-top product-img img-fluid" src="' . esc_url( amstheme_placeholder_img_src() ) . '" alt="' . esc_attr( get_the_title() ) . '"></a>';
 								}
 								
 								// Sale badge
-								if ( $product->is_on_sale() ) {
+								if ( amstheme_is_woocommerce_active() && $product && is_object( $product ) && method_exists( $product, 'is_on_sale' ) && $product->is_on_sale() ) {
 									echo '<span class="badge bg-danger position-absolute top-0 start-0 m-2">Sale</span>';
 								}
 								?>
@@ -151,11 +151,15 @@ get_header(); ?>
 									</a>
 								</h6>
 								<div class="product-rating mb-2">
-									<?php woocommerce_template_loop_rating(); ?>
+									<?php if ( amstheme_is_woocommerce_active() ) : ?>
+										<?php woocommerce_template_loop_rating(); ?>
+									<?php endif; ?>
 								</div>
 								<p class="card-text price mb-3"><?php echo wp_kses_post( $product->get_price_html() ); ?></p>
 								<div class="mt-auto">
-									<?php woocommerce_template_loop_add_to_cart(); ?>
+									<?php if ( amstheme_is_woocommerce_active() ) : ?>
+										<?php woocommerce_template_loop_add_to_cart(); ?>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>

@@ -31,14 +31,21 @@
 			</div>
 			<div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
 				<?php if ( is_user_logged_in() ) : ?>
-					<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;">
-						<span style="margin-right: 0.35rem;">👤</span>My Account
-					</a>
+					<?php if ( amstheme_is_woocommerce_active() ) : ?>
+						<a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;">
+							<span style="margin-right: 0.35rem;">👤</span>My Account 
+							
+						</a>
+					<?php else: ?>
+						<a href="<?php echo esc_url( home_url() . '/my-account' ); ?>" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;">
+							<span style="margin-right: 0.35rem;">👤</span><?php echo esc_html( wp_get_current_user()->display_name ); ?>
+						</a>
+					<?php endif; ?>
 					<a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;">
 						Logout
 					</a>
 				<?php else : ?>
-					<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;">
+					<a href="<?php echo esc_url( amstheme_get_auth_page_url() ); ?>" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;">
 						Login / Register
 					</a>
 				<?php endif; ?>
@@ -78,15 +85,17 @@
 			);
 			?>
 		</div>
-
+		
+		<?php if (amstheme_is_woocommerce_active() && is_user_logged_in()) : ?>
 		<!-- Cart Icon -->
 		<div style="display: flex; align-items: center; margin-left: 1.5rem;">
-			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" style="position: relative; color: #0d6efd; text-decoration: none; font-size: 1.3rem; transition: color 0.3s ease; display: flex; align-items: center;">
+			<a href="<?php echo esc_url( amstheme_get_cart_url() ); ?>" style="position: relative; color: #0d6efd; text-decoration: none; font-size: 1.3rem; transition: color 0.3s ease; display: flex; align-items: center;">
 				🛒
 				<span style="font-size: 0.7rem; min-width: 20px; height: 20px; background: #0d6efd; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: absolute; top: -8px; right: -8px; font-weight: bold;">
-					<?php echo WC()->cart->get_cart_contents_count(); ?>
+					<?php echo esc_html( amstheme_get_cart_count() ); ?>
 				</span>
 			</a>
 		</div>
+		<?php endif; ?>
 	</div>
 </nav>
